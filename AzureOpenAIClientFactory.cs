@@ -27,10 +27,10 @@ namespace ToreAurstadIT.OpenAIDemo
         /// </summary>
         /// <returns></returns>
         public AzureOpenAIClientBuilder WithDefaultEndpointFromEnvironmentVariable() { _endpoint = Environment.GetEnvironmentVariable(AZURE_AI_SERVICES_ENDPOINT, EnvironmentVariableTarget.User); return this; }
-       
-        
-        public AzureOpenAIClientBuilder WithKey(string key) { _key = new ApiKeyCredential(key); return this; }       
-        public AzureOpenAIClientBuilder WithKeyFromEnvironmentVariable(string key) { _key = new ApiKeyCredential(Environment.GetEnvironmentVariable(key) ?? "N/A"); return this; }
+
+
+        public AzureOpenAIClientBuilder WithKey(string key) { _key = new ApiKeyCredential(key); return this; }
+        public AzureOpenAIClientBuilder WithKeyFromEnvironmentVariable(string key) { _key = new ApiKeyCredential(Environment.GetEnvironmentVariable(key, EnvironmentVariableTarget.User) ?? "N/A"); return this; }
 
         /// <summary>
         /// Usage : Provide user-specific environment variable called : 'AZURE_AI_SERVICES_KEY'
