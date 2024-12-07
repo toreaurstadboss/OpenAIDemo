@@ -40,7 +40,7 @@ namespace ToreAurstadIT.OpenAIDemo
             Console.WriteLine($"\n{reply}");
 
             Console.WriteLine("Press any key to continue..");
-            Console.ReadKey();
+            //  Console.ReadKey();
         }
 
 
