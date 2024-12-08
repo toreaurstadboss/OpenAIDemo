@@ -1,7 +1,6 @@
 ﻿using OpenAI.Chat;
 using OpenAIDemo;
 using System.Diagnostics;
-using System.Net;
 
 namespace ToreAurstadIT.OpenAIDemo
 {

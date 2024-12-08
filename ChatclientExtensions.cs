@@ -21,18 +21,19 @@ namespace OpenAIDemo
             if (dataSources?.Any() == true)
             {
                 chatCompletionOptions = new ChatCompletionOptions();
-#pragma warning disable AOAI001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
                 foreach (var dataSource in dataSources!)
                 {
+#pragma warning disable AOAI001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
                     chatCompletionOptions.AddDataSource(new AzureSearchChatDataSource()
                     {
                         Endpoint = new Uri(dataSource.endpoint),
                         IndexName = dataSource.indexname,
                         Authentication = DataSourceAuthentication.FromApiKey(dataSource.authentication)
                     });
-                }
 #pragma warning restore AOAI001 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+                }
+
             }
 
             return chatClient.CompleteChatStreamingAsync(
