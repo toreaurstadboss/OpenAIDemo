@@ -10,18 +10,19 @@ namespace ToreAurstadIT.OpenAIDemo
         {
             const string modelName = "gpt-4";
 
-            var chatClient = AzureOpenAIClientBuilder
-                .Instance
-                .WithDefaultEndpointFromEnvironmentVariable()
-                .WithDefaultKeyFromEnvironmentVariable()
-                .BuildChatClient(aiModel: modelName);
-
-            var chatGptDemo = new ChatGptDemo();
-
+        
             Console.WriteLine("Welcome to the Azure AI Chat GPT-4 demo");
 
             do
             {
+                var chatClient = AzureOpenAIClientBuilder
+                    .Instance
+                    .WithDefaultEndpointFromEnvironmentVariable()
+                    .WithDefaultKeyFromEnvironmentVariable()
+                    .BuildChatClient(aiModel: modelName);
+
+                var chatGptDemo = new ChatGptDemo();
+
                 string? reply = await RunOpenAiQuery(chatClient, chatGptDemo);
                 #region TraceOutput
                 Trace.WriteLine("==================================================================");
@@ -29,6 +30,7 @@ namespace ToreAurstadIT.OpenAIDemo
                 Trace.WriteLine($"\n{reply}");
                 #endregion
                 Console.WriteLine("Do you want to eXit this program? Press 'X'. Press any button to continue.");
+                chatClient = null;
             }
             while ((Console.ReadKey().Key != ConsoleKey.X));
 
