@@ -15,6 +15,8 @@ namespace ToreAurstadIT.OpenAIDemo
                 return null;
             }
 
+            Console.WriteLine("Searching ... Please wait..");
+
             var stopWatch = Stopwatch.StartNew();
 
             var chatDataSources = new[]{
